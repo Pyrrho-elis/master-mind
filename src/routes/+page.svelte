@@ -119,7 +119,14 @@
 		class="flex flex-col justify-center items-center p-6 rounded-lg border-2 bg-gray gap-8 my-10 w-[350px] text-black"
 	>
 		<p class="text-white text-lg">Attempts: {guess}</p>
-		<SvelteOtp
+
+		{#each score as a}
+			{#if a.exists == 4}
+				{#if a.correctSpot == 4}
+					<h1 class="text-2xl text-green-600">You Win!</h1>
+				{/if}
+			{/if}
+		{/each}		<SvelteOtp
 			inputClass="rounded-md bg-gray-200"
 			disableDefaultStyle="true"
 			separatorClass="border-blue-700 text-3xl font-bold text-white"
