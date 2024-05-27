@@ -16,6 +16,6 @@
         <a href="/rules" class="w-[40px] h-[40px] m-6"> 
         <GoInfo /></a>
     {/if}
-	<h1 class="text-2xl font-black">Master Mind</h1>
+	<h1 class="text-2xl font-black">KrackTheCode</h1>
 	<a href="https://t.me/PyrrhoOfElis" class="w-[50px] h-[50px] m-6"><img class=" rounded-full" src="pyrr.jpg" alt=""></a>
 </div>
