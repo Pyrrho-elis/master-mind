@@ -5,7 +5,7 @@
 	import { toast } from '@zerodevx/svelte-toast';
 	import GoInfo from 'svelte-icons/go/GoInfo.svelte';
 	import Nav from '../cpmnts/Nav.svelte';
-	import { loglib } from '@loglib/tracker/*';
+	import Analytics from './Analytics.svelte';
 
 	let value = '';
 	let err = '';
@@ -19,9 +19,6 @@
 		//console.log(valid);
 	}
 
-	loglib.record({
-		id: 'krackthekode_vercel'
-	});
 
 	const handleSolve = () => {
 		if (value.length < 4) {
@@ -115,6 +112,8 @@
 		confetti.destroyTarget(true);
 	};
 </script>
+
+<Analytics />
 
 <div class="flex flex-col h-screen items-center bg-black">
 	<div class="flex justify-between items-center w-screen text-white h-16">
