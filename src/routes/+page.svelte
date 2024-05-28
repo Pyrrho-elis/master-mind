@@ -5,6 +5,7 @@
 	import { toast } from '@zerodevx/svelte-toast';
 	import GoInfo from 'svelte-icons/go/GoInfo.svelte';
 	import Nav from '../cpmnts/Nav.svelte';
+	import { loglib } from '@loglib/tracker/*';
 
 	let value = '';
 	let err = '';
@@ -17,6 +18,10 @@
 		handleInput(value);
 		//console.log(valid);
 	}
+
+	loglib.record({
+		id: 'krackthekode_vercel'
+	});
 
 	const handleSolve = () => {
 		if (value.length < 4) {
@@ -126,7 +131,8 @@
 					<h1 class="text-2xl text-green-600">You Win!</h1>
 				{/if}
 			{/if}
-		{/each}		<SvelteOtp
+		{/each}
+		<SvelteOtp
 			inputClass="rounded-md bg-gray-200"
 			disableDefaultStyle="true"
 			separatorClass="border-blue-700 text-3xl font-bold text-white"

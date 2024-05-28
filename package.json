@@ -31,6 +31,7 @@
 	"type": "module",
 	"dependencies": {
 		"@k4ung/svelte-otp": "^0.0.9",
+		"@loglib/tracker": "^0.8.0",
 		"svelte-icons": "^2.1.0"
 	}
 }
