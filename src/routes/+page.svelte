@@ -113,7 +113,6 @@
 	};
 </script>
 
-<Analytics />
 
 <div class="flex flex-col h-screen items-center bg-black">
 	<div class="flex justify-between items-center w-screen text-white h-16">
