@@ -5,7 +5,6 @@
 	import { toast } from '@zerodevx/svelte-toast';
 	import GoInfo from 'svelte-icons/go/GoInfo.svelte';
 	import Nav from '../cpmnts/Nav.svelte';
-	import Analytics from './Analytics.svelte';
 
 	let value = '';
 	let err = '';
