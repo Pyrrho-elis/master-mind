@@ -42,7 +42,7 @@
 					//console.log(exists);
 				}
 			}
-			score = [...score, { correctSpot: correctSpot, exists: exists }];
+			score = [...score, { correctSpot: correctSpot, exists: exists , attempt: value}];
 			correctSpot = 0;
 			value = '';
 			err = '';
@@ -143,6 +143,15 @@
 		/>
 		<button on:click={handleSolve} class="text-black my-4 rounded-lg p-2 bg-white">Submit</button>
 		<div class="flex justify-between gap-10">
+			<div class="text-white flex flex-col justify-center items-center">
+				<h1 class="text-xl font-bold">A</h1>
+				{#each score as a}
+				<p class="text-white">
+					{a.attempt}
+				</p>
+			{/each}
+			</div>
+			<hr class="border-l-8 h-full w-[1px]" />
 			<div class="text-white flex flex-col justify-center items-center">
 				<h1 class="text-xl font-bold">E</h1>
 				{#each score as a}
