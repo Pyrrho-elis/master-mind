@@ -6,7 +6,7 @@
 	import Nav from '../../cpmnts/Nav.svelte';
 </script>
 
-<div class="flex flex-col h-auto items-center bg-black text-white">
+<div class="flex-1 flex-col min-h-screen items-center bg-black text-white">
 	<Nav />
 	<div class="flex flex-col gap-4 text-center">
 		<h1 class="text-2xl font-bold">How To Play</h1>
