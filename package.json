@@ -1,14 +1,17 @@
 {
-	"name": "number",
-	"version": "0.0.1",
+	"name": "krackthekode",
+	"version": "1.0.0",
 	"private": true,
+	"description": "A modern Mastermind game built with SvelteKit",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
 		"test": "playwright test",
+		"test:ui": "playwright test --ui",
 		"lint": "prettier --check . && eslint .",
-		"format": "prettier --write ."
+		"format": "prettier --write .",
+		"type-check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json"
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.28.1",
