@@ -36,7 +36,7 @@
 			<div class="flex items-center space-x-3">
 				<ThemeToggle />
 				<a
-					href="https://t.me/PyrrhoOfElis"
+					href="https://x.com/nep_tune1"
 					class="navbar-button w-10 h-10 flex items-center justify-center rounded-full overflow-hidden"
 					aria-label="Contact developer on Telegram"
 				>
