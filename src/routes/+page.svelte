@@ -237,7 +237,7 @@
 	<main class="flex-1 flex flex-col items-center justify-center px-4 sm:px-6 py-8">
 		<div class="w-full max-w-6xl">
 			<div class="text-center mb-8">
-				<p class="text-sm text-gray-600 dark:text-gray-400 text-body">
+				<p class="text-sm text-body">
 					Attempt {guess} of {MAX_ATTEMPTS}
 				</p>
 			</div>
@@ -252,7 +252,7 @@
 							<h2 class="text-2xl sm:text-3xl font-bold text-green-600 dark:text-green-400 mb-3 text-heading">
 								You Win!
 							</h2>
-							<p class="text-gray-700 dark:text-gray-300 mb-6 text-body">
+							<p class="mb-6 text-body">
 								You cracked the code in {guess} attempts.
 							</p>
 							<button 
@@ -268,8 +268,8 @@
 							<h2 class="text-2xl sm:text-3xl font-bold text-red-600 dark:text-red-400 mb-3 text-heading">
 								Game Over
 							</h2>
-							<p class="text-gray-700 dark:text-gray-300 mb-6 text-body">
-								The code was <span class="font-mono font-bold text-gray-900 dark:text-gray-100">{code}</span>
+							<p class="mb-6 text-body">
+								The code was <span class="font-mono font-bold">{code}</span>
 							</p>
 							<button 
 								on:click={resetGame} 
@@ -280,7 +280,7 @@
 						</div>
 					{:else}
 						<div class="flex flex-col flex-1 justify-center">
-							<label class="block text-gray-700 dark:text-gray-300 text-sm font-medium mb-4 text-center text-body">
+							<label class="block text-sm font-medium mb-4 text-center text-body">
 								Enter your 4-digit code (1-9, no repeats)
 							</label>
 							<div bind:this={otpComponent} class="flex justify-center gap-2 mb-4">
@@ -315,7 +315,7 @@
 				<!-- Results Card -->
 				<div class="card p-6 sm:p-8 flex flex-col min-h-[400px]">
 					<div class="flex justify-between items-center mb-4">
-						<p class="text-gray-800 dark:text-gray-200 text-lg font-semibold tracking-wide text-heading">
+						<p class="text-lg font-semibold tracking-wide text-heading">
 							Attempts
 						</p>
 						<button
@@ -325,7 +325,7 @@
 							New Game
 						</button>
 					</div>
-					<div class="flex justify-between text-xs text-gray-500 dark:text-gray-400 mb-3 px-2">
+					<div class="flex justify-between text-xs mb-3 px-2">
 						<span class="font-medium">Attempt</span>
 						<span class="font-medium">Exists</span>
 						<span class="font-medium">Correct</span>
@@ -335,7 +335,7 @@
 							<div class="attempt-row flex justify-between items-center py-3 px-4
 								{(i % 2 === 0) ? 'bg-white dark:bg-gray-700' : 'bg-gray-50 dark:bg-gray-800'} 
 								transition-colors duration-150">
-								<span class="font-mono font-bold text-gray-900 dark:text-gray-100 text-lg">
+								<span class="font-mono font-bold text-lg">
 									{attempt.attempt}
 								</span>
 								<span class="text-blue-600 dark:text-blue-400 font-bold text-lg">

@@ -8,17 +8,17 @@
 	font-weight: 400;
 	font-style: normal;
 	
-	/* Light mode colors */
-	--bg-primary: #ffffff;
-	--bg-secondary: #f8fafc;
-	--bg-tertiary: #f1f5f9;
+	/* Light mode colors - toned down for better readability */
+	--bg-primary: #f5f5f5;
+	--bg-secondary: #fafafa;
+	--bg-tertiary: #f0f0f0;
 	--bg-card: #ffffff;
 	--bg-input: #ffffff;
-	--text-primary: #0f172a;
-	--text-secondary: #475569;
-	--text-muted: #64748b;
-	--border-primary: #e2e8f0;
-	--border-secondary: #cbd5e1;
+	--text-primary: #1a1a1a;
+	--text-secondary: #4a4a4a;
+	--text-muted: #6b7280;
+	--border-primary: #d1d5db;
+	--border-secondary: #9ca3af;
 	--shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
 	--shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 	--shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
@@ -135,11 +135,13 @@ input:hover:not(:disabled) {
 	font-weight: 700;
 	letter-spacing: -0.025em;
 	line-height: 1.2;
+	color: var(--text-primary);
 }
 
 .text-body {
 	line-height: 1.6;
 	letter-spacing: 0.01em;
+	color: var(--text-primary);
 }
 
 /* Dark mode specific overrides */
@@ -163,6 +165,15 @@ input:hover:not(:disabled) {
 }
 
 [data-theme="dark"] .attempt-row:nth-child(odd) {
+	background-color: #1a1a1a;
+}
+
+/* Fix for rules page alternating backgrounds */
+[data-theme="dark"] .rules-item:nth-child(even) {
+	background-color: #2a2a2a;
+}
+
+[data-theme="dark"] .rules-item:nth-child(odd) {
 	background-color: #1a1a1a;
 }
 
@@ -190,4 +201,43 @@ input:hover:not(:disabled) {
 	color: var(--text-primary);
 	font-weight: 800;
 	letter-spacing: -0.025em;
+}
+
+/* Ensure all text elements use proper colors */
+p, span, div, h1, h2, h3, h4, h5, h6, label, li {
+	color: var(--text-primary);
+}
+
+/* Specific text color overrides for better readability */
+.text-gray-600 {
+	color: var(--text-secondary) !important;
+}
+
+.text-gray-700 {
+	color: var(--text-primary) !important;
+}
+
+.text-gray-800 {
+	color: var(--text-primary) !important;
+}
+
+.text-gray-900 {
+	color: var(--text-primary) !important;
+}
+
+/* Dark mode text color overrides */
+[data-theme="dark"] .text-gray-600 {
+	color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .text-gray-700 {
+	color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .text-gray-800 {
+	color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .text-gray-900 {
+	color: var(--text-primary) !important;
 }
