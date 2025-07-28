@@ -239,6 +239,18 @@ p, span, div, h1, h2, h3, h4, h5, h6, label, li {
 	color: var(--text-primary);
 }
 
+/* Confetti animation */
+@keyframes confetti-fall {
+	0% {
+		transform: translateY(-10px) rotate(0deg);
+		opacity: 1;
+	}
+	100% {
+		transform: translateY(100vh) rotate(720deg);
+		opacity: 0;
+	}
+}
+
 /* Specific text color overrides for better readability */
 .text-gray-600 {
 	color: var(--text-secondary) !important;
