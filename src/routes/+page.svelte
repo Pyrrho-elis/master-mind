@@ -34,7 +34,6 @@
 		gameOver = false;
 		inputError = '';
 		isSubmitting = false;
-		//console.log('New code:', code);
 		
 		// Auto-focus the first input after reset
 		setTimeout(() => {
@@ -232,47 +231,62 @@
 	};
 </script>
 
-<div class="min-h-screen bg-gray-100 flex flex-col">
-	<!-- Sticky Header -->
-	<header class="sticky top-0 z-10 bg-white border-b border-gray-200">
-		<div class="max-w-3xl mx-auto flex items-center justify-between h-16 px-4">
-			<Nav />
-		</div>
-	</header>
-
-	<main class="flex-1 flex flex-col items-center justify-center px-2 sm:px-4 py-6">
-		<div class="w-full max-w-3xl">
-			<div class="text-center mb-4">
-				<p class="text-sm text-gray-600">Attempt {guess} of {MAX_ATTEMPTS}</p>
+<div class="min-h-screen bg-gray-50 dark:bg-gray-900 flex flex-col">
+	<Nav />
+	
+	<main class="flex-1 flex flex-col items-center justify-center px-4 sm:px-6 py-8">
+		<div class="w-full max-w-6xl">
+			<div class="text-center mb-8">
+				<p class="text-sm text-gray-600 dark:text-gray-400 text-body">
+					Attempt {guess} of {MAX_ATTEMPTS}
+				</p>
 			</div>
 
-			<!-- Responsive grid: input and results side by side on md+, stacked on mobile -->
-			<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+			<!-- Responsive grid: input and results side by side on lg+, stacked on mobile -->
+			<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
 				<!-- Input Card -->
-				<div class="bg-white rounded-xl border border-gray-300 shadow p-4 sm:p-6 flex flex-col justify-between min-h-[340px]">
+				<div class="card p-6 sm:p-8 flex flex-col justify-between min-h-[400px]">
 					{#if gameWon}
-						<div class="text-center py-6 flex-1 flex flex-col justify-center">
-							<div class="text-4xl mb-2">🎉</div>
-							<h2 class="text-2xl font-bold text-green-600 mb-2">You Win!</h2>
-							<p class="text-gray-700 mb-4">You cracked the code in {guess} attempts.</p>
-							<button on:click={resetGame} class="w-full py-2 bg-gray-900 text-white rounded-lg font-semibold hover:bg-gray-800 transition">Play Again</button>
+						<div class="text-center py-8 flex-1 flex flex-col justify-center">
+							<div class="text-5xl mb-4">🎉</div>
+							<h2 class="text-2xl sm:text-3xl font-bold text-green-600 dark:text-green-400 mb-3 text-heading">
+								You Win!
+							</h2>
+							<p class="text-gray-700 dark:text-gray-300 mb-6 text-body">
+								You cracked the code in {guess} attempts.
+							</p>
+							<button 
+								on:click={resetGame} 
+								class="btn-primary w-full"
+							>
+								Play Again
+							</button>
 						</div>
 					{:else if gameOver}
-						<div class="text-center py-6 flex-1 flex flex-col justify-center">
-							<div class="text-4xl mb-2">💥</div>
-							<h2 class="text-2xl font-bold text-red-600 mb-2">Game Over</h2>
-							<p class="text-gray-700 mb-4">The code was <span class="font-mono font-bold">{code}</span></p>
-							<button on:click={resetGame} class="w-full py-2 bg-gray-900 text-white rounded-lg font-semibold hover:bg-gray-800 transition">Try Again</button>
+						<div class="text-center py-8 flex-1 flex flex-col justify-center">
+							<div class="text-5xl mb-4">💥</div>
+							<h2 class="text-2xl sm:text-3xl font-bold text-red-600 dark:text-red-400 mb-3 text-heading">
+								Game Over
+							</h2>
+							<p class="text-gray-700 dark:text-gray-300 mb-6 text-body">
+								The code was <span class="font-mono font-bold text-gray-900 dark:text-gray-100">{code}</span>
+							</p>
+							<button 
+								on:click={resetGame} 
+								class="btn-primary w-full"
+							>
+								Try Again
+							</button>
 						</div>
 					{:else}
 						<div class="flex flex-col flex-1 justify-center">
-							<label class="block text-gray-700 text-sm font-medium mb-3 text-center">
+							<label class="block text-gray-700 dark:text-gray-300 text-sm font-medium mb-4 text-center text-body">
 								Enter your 4-digit code (1-9, no repeats)
 							</label>
-							<div bind:this={otpComponent} class="flex justify-center gap-2 mb-3">
+							<div bind:this={otpComponent} class="flex justify-center gap-2 mb-4">
 								<SvelteOtp
 									disableDefaultStyle="true"
-									separatorClass="text-gray-400 text-xl mx-1"
+									separatorClass="text-gray-400 dark:text-gray-500 text-xl mx-1"
 									placeholder="•"
 									separator="-"
 									numberOnly
@@ -283,12 +297,14 @@
 								/>
 							</div>
 							{#if inputError}
-								<p class="text-red-600 text-sm text-center mb-2">{inputError}</p>
+								<p class="text-red-600 dark:text-red-400 text-sm text-center mb-4 text-body">
+									{inputError}
+								</p>
 							{/if}
 							<button
 								on:click={handleSolve}
 								disabled={!valid || isSubmitting}
-								class="w-full py-3 bg-gray-900 text-white rounded-lg font-semibold hover:bg-gray-800 disabled:bg-gray-300 disabled:cursor-not-allowed transition"
+								class="btn-primary w-full disabled:opacity-50 disabled:cursor-not-allowed"
 							>
 								{isSubmitting ? 'Checking...' : 'Submit'}
 							</button>
@@ -297,28 +313,37 @@
 				</div>
 
 				<!-- Results Card -->
-				<div class="bg-white rounded-xl border border-gray-300 shadow p-4 sm:p-6 flex flex-col min-h-[340px]">
-					<div class="flex justify-between items-center mb-2">
-						<p class="text-gray-800 text-base font-semibold tracking-wide">Attempts</p>
+				<div class="card p-6 sm:p-8 flex flex-col min-h-[400px]">
+					<div class="flex justify-between items-center mb-4">
+						<p class="text-gray-800 dark:text-gray-200 text-lg font-semibold tracking-wide text-heading">
+							Attempts
+						</p>
 						<button
 							on:click={resetGame}
-							class="px-3 py-1 bg-gray-900 text-white rounded text-sm hover:bg-gray-800 transition-colors"
+							class="px-4 py-2 bg-gray-900 dark:bg-gray-700 text-white rounded-lg text-sm hover:bg-gray-800 dark:hover:bg-gray-600 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800"
 						>
 							New Game
 						</button>
 					</div>
-					<div class="flex justify-between text-xs text-gray-500 mb-2">
-						<span>Attempt</span>
-						<span>Exists</span>
-						<span>Correct</span>
+					<div class="flex justify-between text-xs text-gray-500 dark:text-gray-400 mb-3 px-2">
+						<span class="font-medium">Attempt</span>
+						<span class="font-medium">Exists</span>
+						<span class="font-medium">Correct</span>
 					</div>
-					<div class="max-h-60 overflow-y-auto rounded bg-gray-50 border border-gray-200">
+					<div class="max-h-64 overflow-y-auto rounded-lg bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
 						{#each score as attempt, i}
-							<div class="flex justify-between items-center py-2 px-2
-								{(i % 2 === 0) ? 'bg-white' : 'bg-gray-50'}">
-								<span class="font-mono font-bold text-gray-900">{attempt.attempt}</span>
-								<span class="text-blue-600 font-bold">{attempt.exists}</span>
-								<span class="text-green-600 font-bold">{attempt.correctSpot}</span>
+							<div class="attempt-row flex justify-between items-center py-3 px-4
+								{(i % 2 === 0) ? 'bg-white dark:bg-gray-700' : 'bg-gray-50 dark:bg-gray-800'} 
+								transition-colors duration-150">
+								<span class="font-mono font-bold text-gray-900 dark:text-gray-100 text-lg">
+									{attempt.attempt}
+								</span>
+								<span class="text-blue-600 dark:text-blue-400 font-bold text-lg">
+									{attempt.exists}
+								</span>
+								<span class="text-green-600 dark:text-green-400 font-bold text-lg">
+									{attempt.correctSpot}
+								</span>
 							</div>
 						{/each}
 					</div>
