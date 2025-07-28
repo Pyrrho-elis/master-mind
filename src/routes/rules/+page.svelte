@@ -40,26 +40,26 @@
 							After submitting, you'll receive two pieces of information to help you narrow down the correct code:
 						</p>
 						<div class="flex flex-col sm:flex-row gap-4">
-							<div class="bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 p-4 rounded-lg flex-1">
+							<div class="explanation-card bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 p-4 rounded-lg flex-1">
 								<h4 class="font-bold text-base mb-2 text-blue-700 dark:text-blue-400 text-heading">
 									Exists
 								</h4>
 								<p class="text-sm text-body">
 									How many digits from your guess exist somewhere in the secret code, regardless of position.
 								</p>
-								<div class="mt-3 p-3 bg-gray-50 dark:bg-gray-800 rounded text-sm text-body">
+								<div class="example-box mt-3 p-3 bg-gray-50 dark:bg-gray-800 rounded text-sm text-body">
 									<strong class="text-gray-900 dark:text-gray-100">Example:</strong> Your Guess: 1234, Code: 7249<br />
 									<strong class="text-blue-600 dark:text-blue-400">E: 2</strong> (because digits 2 and 4 exist in the code)
 								</div>
 							</div>
-							<div class="bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 p-4 rounded-lg flex-1">
+							<div class="explanation-card bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 p-4 rounded-lg flex-1">
 								<h4 class="font-bold text-base mb-2 text-green-700 dark:text-green-400 text-heading">
 									Correct
 								</h4>
 								<p class="text-sm text-body">
 									How many digits are in the correct position (this is always ≤ the number in Exists).
 								</p>
-								<div class="mt-3 p-3 bg-gray-50 dark:bg-gray-800 rounded text-sm text-body">
+								<div class="example-box mt-3 p-3 bg-gray-50 dark:bg-gray-800 rounded text-sm text-body">
 									<strong class="text-gray-900 dark:text-gray-100">Example:</strong> Your Guess: 1234, Code: 7249<br />
 									<strong class="text-green-600 dark:text-green-400">C: 1</strong> (because only digit "2" is in the correct position)
 								</div>
@@ -86,7 +86,7 @@
 					</li>
 				</ol>
 
-				<div class="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-6 sm:p-8 mt-8">
+				<div class="strategy-tips bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-6 sm:p-8 mt-8">
 					<h3 class="text-base sm:text-xl font-semibold text-green-700 dark:text-green-400 mb-3 text-heading">
 						💡 Strategy Tips
 					</h3>
