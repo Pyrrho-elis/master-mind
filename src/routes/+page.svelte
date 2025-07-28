@@ -417,11 +417,11 @@
 								<p class="mb-6 text-body">
 									You cracked the code in {guess} attempts.
 								</p>
-								<div class="flex gap-3">
+								<div class="flex gap-3 justify-center">
 									{#if gameMode === 'daily'}
 										<button 
 											on:click={handleShare}
-											class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors text-sm"
+											class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors text-sm w-32"
 										>
 											<IoMdShare class="w-3 h-3 mr-1" />
 											Share
